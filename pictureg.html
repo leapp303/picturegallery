@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+	<html ng-app="photog">
+	<head>
+	    <meta charset="utf-8" />
+	    <title>Picture Gallery </title>
+	    <meta name="description" content="Picture Gallery ">
+
+	    <!-- style sheet reference -->
+	    <link href="pictures.css" rel="stylesheet" type="text/css" />
+		<!-- javascript reference -->
+	    <script src="http://code.angularjs.org/1.2.0rc1/angular.js"></script>
+	    <script src="http://code.angularjs.org/1.2.0rc1/angular-animate.min.js"></script>
+	    <script src="http://code.angularjs.org/1.2.0rc1/angular-touch.min.js"></script>
+	    <script src="angscript.js"></script>
+	</head>
+	
+		<body ng-controller="AngularCtrl">
+
+	    <!-- container -->
+	    <div class="container imagepanel">
+	        <img ng-repeat="picture in pictures" class="actimage"  ng-show="display($index)" ng-src="{{picture.loc}}" />
+	    </div>
+		<div class="container imagepanel">
+			<!-- bottom image selection panel -->
+	        <ul class="bottompanel">
+	            <li ng-repeat="picture in pictures" ng-class="{'active':display($index)}">
+	                <img src="{{picture.loc}}"  ng-click="showPicture($index);" />
+	            </li>
+	        </ul>
+		</div>
+	</body>
